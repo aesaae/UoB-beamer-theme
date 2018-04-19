@@ -1,0 +1,48 @@
+% WingSensorDescription.tex
+
+\tikzstyle{RectObject1}=[rectangle,draw=blue,rounded corners,line width=1.0mm,minimum width=3.0em,%
+	minimum height=16.5em]
+\tikzstyle{RectObject2}=[rectangle,draw=blue,rounded corners,line width=1.0mm,minimum width=2em,%
+	minimum height=2em]
+\tikzstyle{LabelObject}=[fill=white,rectangle,rounded corners,line width=0.5mm,%
+	align=center]
+\tikzstyle{ArrowObject}=[red,line width=1.0mm, -latex]
+
+\resizebox{!}{0.45\textwidth}{
+	\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] (image) at (0,0)%
+			%{\includegraphics[width=\textwidth]{WingSensorDescription.eps}};
+			{\includegraphics[width=\textwidth]{WingInstrumentation.eps}};
+		% Define scope with 'image' dimensions as reference
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+			%\draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
+			%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+			%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+			\pause
+			
+			% Pressure Elements
+			\draw(0.330,0.475) node[RectObject1] (PressSensSecA) {};
+			\draw(0.730,0.475) node[RectObject1] (PressSensSecB) {};
+			% Pressure Labels
+			\draw(0.54,0.2) node[LabelObject] (PressSensSecA_Label) {Pressure Port\\Inserts};
+			% Pressure Arrows
+			\draw[ArrowObject] (PressSensSecA_Label.north west) -- (PressSensSecA.east);
+			\draw[ArrowObject] (PressSensSecA_Label.north east) -- (PressSensSecB.west);
+			\pause
+			
+			% Strain Elements
+			\draw(0.240,0.580) node[RectObject2] (StrainSens01) {};
+			\draw(0.425,0.580) node[RectObject2] (StrainSens02) {};
+			\draw(0.630,0.580) node[RectObject2] (StrainSens03) {};
+			\draw(0.820,0.580) node[RectObject2] (StrainSens04) {};
+			% Strain Labels
+			\draw(0.54,0.9125) node[LabelObject] (StrainSens01_Label) {Strain Gauge\\Arrays};
+			% Strain Arrows
+			\draw[ArrowObject] (StrainSens01_Label.west) -- (StrainSens01.north east);
+			\draw[ArrowObject] (StrainSens01_Label.south west) -- (StrainSens02.north);
+			\draw[ArrowObject] (StrainSens01_Label.south east) -- (StrainSens03.north);
+			\draw[ArrowObject] (StrainSens01_Label.east) -- (StrainSens04.north west);
+			\pause
+		\end{scope}
+	\end{tikzpicture}
+}
