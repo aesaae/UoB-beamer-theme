@@ -1,0 +1,52 @@
+% StrainSensorsInWing.tex
+\resizebox{!}{0.45\textwidth}{
+	\begin{tikzpicture}
+		% Auxiliary objects definition
+		\tikzstyle{LabelObject}=[fill=white,rectangle,rounded corners,line width=0.5mm,%
+			align=center]
+		\tikzstyle{ArrowObject}=[red,line width=0.5mm, -latex]
+		% Graphics display
+	  \node[anchor=south west,inner sep=0] (image) at (0,0)%
+	  {\includegraphics[width=\textwidth,trim= 50mm 0mm 50mm 0mm,clip,angle=180]%
+	  	{StrainSensorsInWing.eps}};
+	  % Define scope with 'image' dimensions as reference
+	  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%			  	\draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
+%			  	\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+%			    \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+	    %% Auxiliary coordinates
+	    \coordinate (L0) at (0.875,0.41);   \coordinate (R0) at (0.050,0.42);
+	    \coordinate (L1) at (0.800,0.42);   \coordinate (R1) at (0.125,0.41);
+	    \coordinate (L2) at (0.720,0.41);   \coordinate (R2) at (0.200,0.42);
+	    \coordinate (L3) at (0.640,0.42);   \coordinate (R3) at (0.280,0.41);
+	    \coordinate (L4) at (0.565,0.41);   \coordinate (R4) at (0.360,0.42);
+	    \coordinate (L5) at (0.490,0.42);   \coordinate (R5) at (0.440,0.41);
+	    %% Labels
+	    \draw(0.875,0.25) node[LabelObject] (L0_Label) {${L0}$};
+	    \draw(0.800,0.55) node[LabelObject] (L1_Label) {${L1}$};
+	    \draw(0.720,0.25) node[LabelObject] (L2_Label) {${L2}$};
+	    \draw(0.640,0.55) node[LabelObject] (L3_Label) {${L3}$};
+	    \draw(0.565,0.25) node[LabelObject] (L4_Label) {${L4}$};
+	    \draw(0.490,0.55) node[LabelObject] (L5_Label) {${L5}$};
+	    \draw(0.440,0.25) node[LabelObject] (R5_Label) {${R5}$};
+	    \draw(0.360,0.55) node[LabelObject] (R4_Label) {${R4}$};
+	    \draw(0.280,0.25) node[LabelObject] (R3_Label) {${R3}$};
+	    \draw(0.200,0.55) node[LabelObject] (R2_Label) {${R2}$};
+	    \draw(0.125,0.25) node[LabelObject] (R1_Label) {${R1}$};
+	    \draw(0.050,0.55) node[LabelObject] (R0_Label) {${R0}$};
+	    %% Arrows
+			\draw[ArrowObject] (L0_Label.north) -- (L0);
+			\draw[ArrowObject] (L1_Label.south) -- (L1);
+			\draw[ArrowObject] (L2_Label.north) -- (L2);
+			\draw[ArrowObject] (L3_Label.south) -- (L3);
+			\draw[ArrowObject] (L4_Label.north) -- (L4);
+			\draw[ArrowObject] (L5_Label.south) -- (L5);
+			\draw[ArrowObject] (R5_Label.north) -- (R5);
+			\draw[ArrowObject] (R4_Label.south) -- (R4);
+			\draw[ArrowObject] (R3_Label.north) -- (R3);
+			\draw[ArrowObject] (R2_Label.south) -- (R2);
+			\draw[ArrowObject] (R1_Label.north) -- (R1);
+			\draw[ArrowObject] (R0_Label.south) -- (R0);
+	  \end{scope}
+	\end{tikzpicture}
+}

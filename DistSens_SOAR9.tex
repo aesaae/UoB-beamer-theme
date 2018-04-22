@@ -51,112 +51,213 @@
 \section{Introduction}
 \subsection{Motivation}
 \begin{frame}{Motivation}
-  Please explain why you chose to investigate this particular aspect of science, computing, or engineering.
+  
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+	\item<1->{Current UAV autopilot technologies}
+	\item<3->{Challenges}
+	\item<5->{Potential use of force and flow information}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}  %%<--- here
+      \only<2>{
 	\begin{itemize}
-		\item{Intrinsic nonlinear dynamics}
-		\item{Classic control strategies limitations}
-		\item{Limitations of inertial controls}
-		\item{Gust alleviation}
-		\item{Aeroelastic effects}
-		\item{Additional\/'Hidden' information}
+	  \item[-]Inertial
+	  \item[-]Single point air speed
+	  \item[-]GPS
+	  \item[-]Vision
 	\end{itemize}
+      }
+      \only<4>{
+	\begin{itemize}
+	  \item[-]Intrinsic nonlinear dynamics
+	  \item[-]Classic control strategies limitations
+	  \item[-]Limitations of inertial controls
+	\end{itemize}	  
+      }
+      \only<6>{
+	\begin{itemize}
+	  \item[-]Gust alleviation
+	  \item[-]Aeroelastic effects
+	  \item[-]Additional 'hidden' information
+	\end{itemize}
+      }
+    \end{column}
+  \end{columns}
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Previous Research}
 \begin{frame}{Previous Research}
 
-	Explain all of the previous research you’ve done about this issue/challenge\ldots
-
-  \begin{block}{A block}
-    What was the goal of your previous research? Be sure to explain how you found it and anyone who might have helped you!.
-  \end{block}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+	\item<2->Strain sensing
+	\item<4->Pressure sensing
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \only<2>{
+	\begin{figure}[!htb]
+	  \centering
+	  \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  \caption{Strain sensing platform}
+	  \label{Fig:ExpPlatform}
+	\end{figure}
+      }
+      \only<3>{
+	\begin{figure}[!htb]
+	  \centering
+	  \input{./Figures/StrainSensorsInWing.tex}
+	  \caption{Strain sensing platform instrumentation}
+	  \label{Fig:ExpPlatformInst}
+	\end{figure}
+      }
+      \only<4>{
+	\begin{figure}[!htb]
+	  \centering
+	  \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}
+	  \caption{Pressure sensing platform}
+	  \label{Fig:ExpPlatform}
+	\end{figure}
+      }
+      \only<5>{
+	\begin{figure}[!htb]
+	  \centering
+	  \includegraphics[height=0.45\textwidth]{wingInsertDiagram.eps}
+	  \caption{Pressure sensing platform instrumentation}
+	  \label{Fig:ExpPlatform}
+	\end{figure}
+      }
+    \end{column}
+  \end{columns}
+  
+%   \begin{block}{A block}
+%     What was the goal of your previous research?
+%     What/How did we found it? and anyone who might have helped you!.
+%   \end{block}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Problem}
-\begin{frame}{The problem or challenge}
-  Please explain the question or problem that you investigated.
-	\begin{itemize}
-		\item Measure, acquire and process flow and load information
-		\item Utilise it for flight control
-	\end{itemize}
+\begin{frame}{Research Problem}
+  Use force and flow sensing to improve performance of UAVs flight control systems.\\
+  \pause
+  To achieve this:
+  \begin{itemize}
+    \item<3-> Develop distributed force and flow sensing system for a small scale fixed wing UAV
+    \item<4-> Integrate force and flow sensing into conventional flight control system architecture
+    \item<5-> Measure response of systems to controlled and natural turbulence
+    \item<6-> Develop advanced reflexive flight control system
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+
+  Research divided into two phases:
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \vspace{-0.5cm}
+      \begin{itemize}
+	\item<2->Wind tunnel experiments using WT model
+	\item<3->Outdoors experiments using flying platform
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+	\item<4->[-]Build and instrument a WT model with a distributed array of pressure and strain sensors
+	\item<4->[-]Carry out calibration \& characterisation (WT, indoor and outdoor)
+	\item<4->[-]Design and implement closed loop control algorithms that use information from distributed array
+      \end{itemize} 
+    \end{column}
+  \end{columns}
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{The hypothesis (or prediction)}
   What do you think will happen?
-	\begin{itemize}
-		\item AoA, Windspeed aero loads compuation/prediction/estimation
-		\item Characterisation of pressure, strain \& force signals as function of ${\alpha}$, V
-			\& ${\delta_{ail}}$
-		\item Acquisition of training/testing daat sets for ANN for ${\alpha}$, V \&
-			${\delta_{ail}}$ prediction
-		\item Identification of stall characteristic markers in pressure \& strain signals, e.g.
-			frequency, variance
-		\item Acquisition of pressure \& strain characteristic response to change in ${q}$
-		\item Explore pressure \& strain response to conditions similar to perching manoeuvre\
-		\item Emulation of pressure \& strain response to gusts
-		\item Identify pressure \& strain response to varying ${q}$, i.e. ${\dot{q}}$
-		\item Vibration of wing has been observed during and after stall. How does this affect
-			pressure \& strain signals?
-		\item Identify pressure \& strain response to varying ${\delta_{ail}}$, i.e.
-						${\dot{\delta}_{ail}}$
-	\end{itemize}
+  
+  Fit strain \& differential pressure sensors
+  Carry out WT experiments
+  Carry out outdoors experiments
+  
+  \begin{itemize}
+    \item AoA, Windspeed aero loads compuation/prediction/estimation
+    \item Characterisation of pressure, strain \& force signals as function of ${\alpha}$, V
+      \& ${\delta_{ail}}$
+    \item Acquisition of training/testing daat sets for ANN for ${\alpha}$, V \&
+      ${\delta_{ail}}$ prediction
+    \item Identification of stall characteristic markers in pressure \& strain signals, e.g.
+      frequency, variance
+    \item Acquisition of pressure \& strain characteristic response to change in ${q}$
+    \item Explore pressure \& strain response to conditions similar to perching manoeuvre\
+    \item Emulation of pressure \& strain response to gusts
+    \item Identify pressure \& strain response to varying ${q}$, i.e. ${\dot{q}}$
+    \item Vibration of wing has been observed during and after stall. How does this affect
+      pressure \& strain signals?
+    \item Identify pressure \& strain response to varying ${\delta_{ail}}$, i.e.
+      ${\dot{\delta}_{ail}}$
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experimental Setup}
+\section{Experiment}
+\subsection[Setup]{Setup}
 \begin{frame}{Experimental Setup}
   A wing model was instrumented with a distributed array of sensors. The main characteristics of the instrumentation are as follows:
-	\begin{itemize}
-		\item{chord-wise array of 30 pressure ports in two sections along the span}
-		\item{span-wise array with 16 strain gauges}
-		\item{data acquisition system using MCU, sampling \@ \SI{100}{\hertz}}
-		\item{1-DOF pitch motion wind tunnel rig}
-		\item{servo system for automated motion}
-	\end{itemize}
+  \begin{itemize}
+    \item{chord-wise array of 30 pressure ports in two sections along the span}
+    \item{span-wise array with 16 strain gauges}
+    \item{data acquisition system using MCU, sampling \@ \SI{100}{\hertz}}
+    \item{1-DOF pitch motion wind tunnel rig}
+    \item{servo system for automated motion}
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain]
   \begin{figure}[!htb]
-		\centering
-		\input{./Figures/WingSensorDescription}
-		\caption{Wing model experimental platform}
-		\label{Fig:ExpPlatform}
-	\end{figure}
+    \centering
+    \input{./Figures/WingSensorDescription}
+    \caption{Wing model experimental platform}
+    \label{Fig:ExpPlatform}
+  \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experimental Results}
-\begin{frame}[plain]{Experiment results}
+\subsection[Preliminary Results]{Preliminary Results}
+\begin{frame}[plain]{Preliminary Results}
   Record the information you get from your experiment.
 	
-	\begin{figure}[!htb]
-		\centering
-		\subfloat[Chord-wise Normalised Pressure\label{fig:ExpPlatform_Pressure}]{%
-			\includegraphics[width=0.4\textwidth]{PressureCoeffDistribution.eps}}\qquad
-		\subfloat[Span-wise Normalised Bending Moment\label{fig:CharSignals_Bending}]{%
-			\includegraphics[width=0.4\textwidth]{BendingMomentDistribution.eps}}
-		\caption{Characteristic signals from distributed sensing array}
-		\label{Fig:CharSignals}
-	\end{figure}
+  \begin{figure}[!htb]
+    \centering
+    \subfloat[Chord-wise Normalised Pressure\label{fig:ExpPlatform_Pressure}]{%
+	    \includegraphics[width=0.4\textwidth]{PressureCoeffDistribution.eps}}\qquad
+    \subfloat[Span-wise Normalised Bending Moment\label{fig:CharSignals_Bending}]{%
+	    \includegraphics[width=0.4\textwidth]{BendingMomentDistribution.eps}}
+    \caption{Characteristic signals from distributed sensing array}
+    \label{Fig:CharSignals}
+  \end{figure}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{My discoveries}
-	What did you learn after testing?
+  What did you learn after testing?
   \begin{itemize}[<+->]
-  \item These will get revealed one by one
-    \begin{itemize}
-    \item Indented bullets
-    \item Some more indented bullets
-    \end{itemize}
-  \item Another bullet point
-  \item Yet another bullet point
+    \item These will get revealed one by one
+      \begin{itemize}
+	\item Indented bullets
+	\item Some more indented bullets
+      \end{itemize}
+    \item Another bullet point
+    \item Yet another bullet point
   \end{itemize}
 \end{frame}
 
@@ -168,16 +269,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 \begin{frame}{Conclusions}
-	What is the conclusion of your experiment?
-	Did the results support your hypothesis or predicted outcome?
-	How will your findings help the area of science you’ve researched?
+  What is the conclusion of your experiment?
+  Did the results support your hypothesis or predicted outcome?
+  How will your findings help the area of science you’ve researched?
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Further Work}
 \begin{frame}{Further Work}
-	What will you do with your findings next?
-	How will you further your research/findings?
+
+  What will you do with your findings next?
+  How will you further your research/findings?
+
+  Wind tunnel testing platform
+  -Design and implement closed loop control algorithms
+  -Carry out closed loop wind tunnel experiments
+  
+  Flying platform
+  -Wind tunnel experiments
+  -Outdoors flight tests
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
