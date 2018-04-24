@@ -1,14 +1,18 @@
 % WingSensorDescription.tex
 
-\tikzstyle{RectObject1}=[rectangle,draw=blue,rounded corners,line width=1.0mm,minimum width=3.0em,%
-	minimum height=16.5em]
-\tikzstyle{RectObject2}=[rectangle,draw=blue,rounded corners,line width=1.0mm,minimum width=2em,%
+\tikzstyle{RectObject1}=[rectangle,draw=blue,rounded corners,line width=0.5mm,minimum width=3.0em,%
+	minimum height=11em]
+\tikzstyle{RectObject2}=[rectangle,draw=blue,rounded corners,line width=0.5mm,minimum width=2em,%
 	minimum height=2em]
+\tikzstyle{RectObject3}=[rectangle,draw=blue,rounded corners,line width=0.5mm,minimum width=3em,%
+	minimum height=3em]
+\tikzstyle{RectObject4}=[rectangle,draw=blue,rounded corners,line width=0.5mm,minimum width=3.0em,%
+	minimum height=4.5em]
 \tikzstyle{LabelObject}=[fill=white,rectangle,rounded corners,line width=0.5mm,%
 	align=center]
 \tikzstyle{ArrowObject}=[red,line width=1.0mm, -latex]
 
-\resizebox{!}{0.45\textwidth}{
+\resizebox{!}{0.4\textwidth}{
 	\begin{tikzpicture}
 		\node[anchor=south west,inner sep=0] (image) at (0,0)%
 			%{\includegraphics[width=\textwidth]{WingSensorDescription.eps}};
@@ -18,31 +22,52 @@
 			%\draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
 			%\foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
 			%\foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
-			\pause
 			
+			\only<2>{
 			% Pressure Elements
 			\draw(0.330,0.475) node[RectObject1] (PressSensSecA) {};
 			\draw(0.730,0.475) node[RectObject1] (PressSensSecB) {};
 			% Pressure Labels
 			\draw(0.54,0.2) node[LabelObject] (PressSensSecA_Label) {Pressure Port\\Inserts};
 			% Pressure Arrows
-			\draw[ArrowObject] (PressSensSecA_Label.north west) -- (PressSensSecA.east);
-			\draw[ArrowObject] (PressSensSecA_Label.north east) -- (PressSensSecB.west);
-			\pause
+			\draw[ArrowObject] (PressSensSecA_Label.north) -- (PressSensSecA.east);
+			\draw[ArrowObject] (PressSensSecA_Label.north) -- (PressSensSecB.west);
+			}
 			
+			\only<3>{
 			% Strain Elements
 			\draw(0.240,0.580) node[RectObject2] (StrainSens01) {};
 			\draw(0.425,0.580) node[RectObject2] (StrainSens02) {};
 			\draw(0.630,0.580) node[RectObject2] (StrainSens03) {};
 			\draw(0.820,0.580) node[RectObject2] (StrainSens04) {};
 			% Strain Labels
-			\draw(0.54,0.9125) node[LabelObject] (StrainSens01_Label) {Strain Gauge\\Arrays};
+			\draw(0.54,0.2) node[LabelObject] (StrainSens01_Label) {Strain Gauge\\Arrays};
 			% Strain Arrows
-			\draw[ArrowObject] (StrainSens01_Label.west) -- (StrainSens01.north east);
-			\draw[ArrowObject] (StrainSens01_Label.south west) -- (StrainSens02.north);
-			\draw[ArrowObject] (StrainSens01_Label.south east) -- (StrainSens03.north);
-			\draw[ArrowObject] (StrainSens01_Label.east) -- (StrainSens04.north west);
-			\pause
+			\draw[ArrowObject] (StrainSens01_Label.west) -- (StrainSens01.south east);
+			\draw[ArrowObject] (StrainSens01_Label.north) -- (StrainSens02.south);
+			\draw[ArrowObject] (StrainSens01_Label.north) -- (StrainSens03.south);
+			\draw[ArrowObject] (StrainSens01_Label.east) -- (StrainSens04.south west);
+			}
+			
+			\only<4>{
+			% Servo Elements
+			\draw(0.160,0.475) node[RectObject3] (Servo01) {};
+			\draw(0.530,0.475) node[RectObject3] (Servo02) {};
+			% Servo Labels
+			\draw(0.340,0.2) node[LabelObject] (Servo_Label) {Control Surface\\Servos};
+			% Servo Arrows
+			\draw[ArrowObject] (Servo_Label.north) -- (Servo01.east);
+			\draw[ArrowObject] (Servo_Label.north) -- (Servo02.west);
+			}
+			
+			\only<5>{
+			% Servo Elements
+			\draw(0.130,0.815) node[RectObject4] (Pitot) {};
+			% Servo Labels
+			\draw(0.50,0.85) node[LabelObject] (Pitot_Label) {Auxiliary\\Pitot Tube};
+			% Servo Arrows
+			\draw[ArrowObject] (Pitot_Label.west) -- (Pitot.east);
+			}
 		\end{scope}
 	\end{tikzpicture}
 }

@@ -23,6 +23,11 @@
 \usepackage[binary-units = true]{siunitx}
 \usepackage{subfig}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\usepackage{multimedia}
+
 \everymath{\displaystyle}
 
 \graphicspath{{./Figures/}}
@@ -40,6 +45,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+\setbeamercovered{transparent}
+
 \titlepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,6 +59,7 @@
 \subsection{Motivation}
 \begin{frame}{Motivation}
   
+	\pause
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
@@ -63,10 +71,10 @@
     \begin{column}{0.5\textwidth}  %%<--- here
       \only<2>{
 	\begin{itemize}
-	  \item[-]Inertial
-	  \item[-]Single point air speed
-	  \item[-]GPS
-	  \item[-]Vision
+	  \item[-]{Inertial}
+	  \item[-]{Single point air speed}
+	  \item[-]{GPS}
+	  \item[-]{Vision}
 	\end{itemize}
       }
       \only<4>{
@@ -77,10 +85,25 @@
 	\end{itemize}	  
       }
       \only<6>{
+			Potential applications
 	\begin{itemize}
-	  \item[-]Gust alleviation
-	  \item[-]Aeroelastic effects
-	  \item[-]Additional 'hidden' information
+	  \item[-]Availability of aerodynamic variables
+	  \begin{itemize}
+      \item[${\rightarrow}$]Improved flight dynamics model
+      \item[${\rightarrow}$]Stall detection
+    \end{itemize}
+	  \item[-]Earlier gust detection
+		\begin{itemize}
+		   \item[${\rightarrow}$]Gust rejection/alleviation
+		\end{itemize}
+		\item[-]Localised information
+		\begin{itemize}
+		   \item[${\rightarrow}$]Localised control
+			\item[${\rightarrow}$]Load tailoring
+    \end{itemize}
+		
+	  %\item[-]Aeroelastic effects
+	  %\item[-]Additional 'hidden' information
 	\end{itemize}
       }
     \end{column}
@@ -89,206 +112,294 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Previous Research}
-\begin{frame}{Previous Research}
-
-  \begin{columns}
-    \begin{column}{0.4\textwidth}
-      \begin{itemize}
-	\item<2->Strain sensing
-	\item<4->Pressure sensing
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.6\textwidth}
-      \only<2>{
-	\begin{figure}[!htb]
-	  \centering
-	  \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
-	  \caption{Strain sensing platform}
-	  \label{Fig:ExpPlatform}
-	\end{figure}
-      }
-      \only<3>{
-	\begin{figure}[!htb]
-	  \centering
-	  \input{./Figures/StrainSensorsInWing.tex}
-	  \caption{Strain sensing platform instrumentation}
-	  \label{Fig:ExpPlatformInst}
-	\end{figure}
-      }
-      \only<4>{
-	\begin{figure}[!htb]
-	  \centering
-	  \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}
-	  \caption{Pressure sensing platform}
-	  \label{Fig:ExpPlatform}
-	\end{figure}
-      }
-      \only<5>{
-	\begin{figure}[!htb]
-	  \centering
-	  \includegraphics[height=0.45\textwidth]{wingInsertDiagram.eps}
-	  \caption{Pressure sensing platform instrumentation}
-	  \label{Fig:ExpPlatform}
-	\end{figure}
-      }
-    \end{column}
-  \end{columns}
-  
-%   \begin{block}{A block}
-%     What was the goal of your previous research?
-%     What/How did we found it? and anyone who might have helped you!.
-%   \end{block}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Problem}
 \begin{frame}{Research Problem}
   Use force and flow sensing to improve performance of UAVs flight control systems.\\
   \pause
-  To achieve this:
+  To achieve this we aim to:
   \begin{itemize}
-    \item<3-> Develop distributed force and flow sensing system for a small scale fixed wing UAV
+    \item<3-> Develop distributed force and flow a sensing system for a small scale fixed wing UAV
     \item<4-> Integrate force and flow sensing into conventional flight control system architecture
     \item<5-> Measure response of systems to controlled and natural turbulence
     \item<6-> Develop advanced reflexive flight control system
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{The hypothesis (or prediction)}
+  %What do you think will happen?
+  %
+  %Fit strain \& differential pressure sensors
+  %Carry out WT experiments
+  %Carry out outdoors experiments
+  %
+  %\begin{itemize}
+    %\item AoA, Windspeed aero loads compuation/prediction/estimation
+    %\item Characterisation of pressure, strain \& force signals as function of ${\alpha}$, V
+      %\& ${\delta_{ail}}$
+    %\item Acquisition of training/testing daat sets for ANN for ${\alpha}$, V \&
+      %${\delta_{ail}}$ prediction
+    %\item Identification of stall characteristic markers in pressure \& strain signals, e.g.
+      %frequency, variance
+    %\item Acquisition of pressure \& strain characteristic response to change in ${q}$
+    %\item Explore pressure \& strain response to conditions similar to perching manoeuvre\
+    %\item Emulation of pressure \& strain response to gusts
+    %\item Identify pressure \& strain response to varying ${q}$, i.e. ${\dot{q}}$
+    %\item Vibration of wing has been observed during and after stall. How does this affect
+      %pressure \& strain signals?
+    %\item Identify pressure \& strain response to varying ${\delta_{ail}}$, i.e.
+      %${\dot{\delta}_{ail}}$
+  %\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research at UoB}
+\subsection[Previous Research]{Previous Research}
+\begin{frame}{Previous Research at UoB: Strain sensing}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+			\only<1,3,6>{
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  			\caption{Strain sensing platform}
+	  			\label{Fig:StrainExpPlatform}
+				\end{figure}
+			}
+			\only<2>{
+				\begin{figure}[!htb]
+	  			\centering
+	  			\input{./Figures/StrainSensorsInWing.tex}
+	  			\caption{Strain sensing platform instrumentation}
+	  			\label{Fig:StrainExpPlatformInst}
+				\end{figure}
+			}
+			\only<4>{
+        \centering
+        \movie[width=0.8\textwidth,externalviewer]{
+          \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
+					{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}
+			}
+			\only<5>{
+        \centering
+        \movie[width=0.8\textwidth,externalviewer]{
+          \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
+					{./Videos/StrainFeedbackCtrl_GustRejection.mp4}
+			}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<2-> 12 full-bridge strain gauges and amplifiers distributed along spar of wing
+				\item<3-> Wind tunnel characterisation
+				\item<4,5-> Closed loop free flight
+				\item<6-> Outdoor flight testing
+			\end{itemize}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Previous Research at UoB: Strain sensing}
+  Findings
+	\pause
+    \begin{itemize}[<+->]
+      \item Strain signal shows linear response with AoA
+      \item Stall markers
+      \item Strain-based roll control similar performance to IMU based control
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Previous Research at UoB: Pressure sensing}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \only<1,3,5>{
+        \begin{figure}[!htb]
+			    \centering
+          \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}
+          \caption{Pressure sensing platform}
+          \label{Fig:PressureExpPlatform}
+        \end{figure}
+      }
+      \only<2>{
+        \begin{figure}[!htb]
+          \centering
+          \includegraphics[height=0.45\textwidth]{wingInsertDiagram.eps}
+          \caption{Pressure sensing platform instrumentation}
+          \label{Fig:PressureExpPlatformInst}
+        \end{figure}
+      }
+			\only<4>{
+        \centering
+        \movie[width=0.8\textwidth,externalviewer]{
+          \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}}
+					{./Videos/WTAoATracking.mp4}
+        %\caption{Pressure sensing platform}
+			}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+		  \begin{itemize}
+				\item<2-> 7 static-pressure ports distributed along wing-chord
+				\item<3-> Wind tunnel characterisation
+				\item<4-> Closed loop 1DOF WT testing
+				\item<5-> Outdoor flight testing
+			\end{itemize}
+		\end{column}
+  \end{columns}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Previous Research at UoB: Pressure sensing}
+  Findings
+	\pause
+    \begin{itemize}[<+->]
+      \item Pressure signal shows linear response with AoA
+      \item Stall markers
+      \item Pitch pressure-based control similar to IMU based control
+			\item Information not available using IMU: AoA, stall, non-linear lift
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Current Research]{Current Research}
+
+\begin{frame}{Current Research at UoB}
+
+  \pause
+	\begin{itemize}[<+->]
+    \item Experimental platform(s) with a distributed array of pressure and strain sensors
+    \item Carry out calibration \& characterisation (WT \& outdoors)
+    \item Design and implement closed loop control algorithms that use information from distributed array
+  \end{itemize}
+	\pause
+  Divided into two phases:
+	\pause
+  \begin{itemize}[<+->]
+    \item Phase 1: Wind tunnel experiments using WT model
+    \item Phase 2: Outdoors experiments using flying platform
+  \end{itemize}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Current Research at UoB}
+
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      Wing model instrumentation:
+      \pause
+      \begin{itemize}
+        \item<2->{Chord-wise array of 30 pressure ports in two sections}
+        \item<3->{Span-wise array with 16 strain gauges}
+				\item<4->{Servo actuated control surfaces}
+        \item<6->{MCU-based data acquisition system using, sampling \@ \SI{100}{\hertz}}
+        \item<7->{1-DOF pitch motion servo-driven system for automated motion}
+        
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+		  \only<2->{
+        \begin{figure}[!htb]
+          \centering
+          \input{./Figures/WingSensorDescription}
+          \caption{Wing model experimental platform}
+          \label{Fig:ExpPlatform}
+        \end{figure}
+			}
+    \end{column}
+  \end{columns}
+		
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+
+  \centering
+  \movie[width=0.8\textwidth,externalviewer]{
+	      \includegraphics[width=0.7\textwidth]{WingModelInWT_01.eps}}{./Videos/WT_BIDS_V8.avi}
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Preliminary Results]{Preliminary Results}
+\begin{frame}{Preliminary Results}
+
+  \vspace{-1.5em}
+	\begin{columns}
+	  \begin{column}{0.5\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+				\includegraphics[height=0.6\textwidth]{PressureCoeffDistribution.eps}
+				\caption{Chord-wise Normalised Pressure}
+				\label{fig:CharSignals_Pressure}
+      \end{figure}
+		\end{column}
+    \begin{column}{0.5\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+				\includegraphics[height=0.6\textwidth]{BendingMomentDistribution.eps}
+				\caption{Span-wise Normalised Bending Moment}
+				\label{fig:CharSignals_Bending}
+      \end{figure}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Preliminary Results}
+	%
+	%\begin{figure}[!htb]
+    %\centering
+    %%\input{./Figures/ANN_UAVCtrl_BlockDiagram}
+    %\caption{AoA and wind-speed estimation using ANN}
+    %\label{Fig:AoAWindspeed_ANN}
+  %\end{figure}
+	%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concluding Remarks \& Further Work}
+\begin{frame}{Concluding Remarks \& Further Work}
+
+  %What did you learn after testing?
+
+  \pause
+  \begin{itemize}[<+->]
+    \item WT Characterisation experiments for strain and pressure signals
+    %\item AoA and wind-speed ANN prediction using pressure data
+  \end{itemize}
+	\pause
+	%What will you do with your findings next?
+  %How will you further your research/findings?
+	Further Work
+	\pause
+  \begin{itemize}[<+->]
+    \item Phase 1: Wind tunnel testing platform
+      \begin{itemize}[<+->]
+      \item[-]Design and implement closed loop control algorithms
+      \item[-]Carry out closed loop wind tunnel experiments
+      \end{itemize}
+	
+    \item Phase 2: Flying platform
+      \begin{itemize}[<+->]
+			\item[-]Build and instrument flying platform
+      \item[-]Wind tunnel experiments
+      \item[-]Outdoors flight tests
+      \end{itemize}
+  \end{itemize}
+	
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
 
-  Research divided into two phases:
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \vspace{-0.5cm}
-      \begin{itemize}
-	\item<2->Wind tunnel experiments using WT model
-	\item<3->Outdoors experiments using flying platform
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-	\item<4->[-]Build and instrument a WT model with a distributed array of pressure and strain sensors
-	\item<4->[-]Carry out calibration \& characterisation (WT, indoor and outdoor)
-	\item<4->[-]Design and implement closed loop control algorithms that use information from distributed array
-      \end{itemize} 
-    \end{column}
-  \end{columns}
-  
-\end{frame}
+  \centering
+	\Huge{Thank you}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{The hypothesis (or prediction)}
-  What do you think will happen?
-  
-  Fit strain \& differential pressure sensors
-  Carry out WT experiments
-  Carry out outdoors experiments
-  
-  \begin{itemize}
-    \item AoA, Windspeed aero loads compuation/prediction/estimation
-    \item Characterisation of pressure, strain \& force signals as function of ${\alpha}$, V
-      \& ${\delta_{ail}}$
-    \item Acquisition of training/testing daat sets for ANN for ${\alpha}$, V \&
-      ${\delta_{ail}}$ prediction
-    \item Identification of stall characteristic markers in pressure \& strain signals, e.g.
-      frequency, variance
-    \item Acquisition of pressure \& strain characteristic response to change in ${q}$
-    \item Explore pressure \& strain response to conditions similar to perching manoeuvre\
-    \item Emulation of pressure \& strain response to gusts
-    \item Identify pressure \& strain response to varying ${q}$, i.e. ${\dot{q}}$
-    \item Vibration of wing has been observed during and after stall. How does this affect
-      pressure \& strain signals?
-    \item Identify pressure \& strain response to varying ${\delta_{ail}}$, i.e.
-      ${\dot{\delta}_{ail}}$
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Experiment}
-\subsection[Setup]{Setup}
-\begin{frame}{Experimental Setup}
-  A wing model was instrumented with a distributed array of sensors. The main characteristics of the instrumentation are as follows:
-  \begin{itemize}
-    \item{chord-wise array of 30 pressure ports in two sections along the span}
-    \item{span-wise array with 16 strain gauges}
-    \item{data acquisition system using MCU, sampling \@ \SI{100}{\hertz}}
-    \item{1-DOF pitch motion wind tunnel rig}
-    \item{servo system for automated motion}
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[plain]
-  \begin{figure}[!htb]
-    \centering
-    \input{./Figures/WingSensorDescription}
-    \caption{Wing model experimental platform}
-    \label{Fig:ExpPlatform}
-  \end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Preliminary Results]{Preliminary Results}
-\begin{frame}[plain]{Preliminary Results}
-  Record the information you get from your experiment.
-	
-  \begin{figure}[!htb]
-    \centering
-    \subfloat[Chord-wise Normalised Pressure\label{fig:ExpPlatform_Pressure}]{%
-	    \includegraphics[width=0.4\textwidth]{PressureCoeffDistribution.eps}}\qquad
-    \subfloat[Span-wise Normalised Bending Moment\label{fig:CharSignals_Bending}]{%
-	    \includegraphics[width=0.4\textwidth]{BendingMomentDistribution.eps}}
-    \caption{Characteristic signals from distributed sensing array}
-    \label{Fig:CharSignals}
-  \end{figure}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{My discoveries}
-  What did you learn after testing?
-  \begin{itemize}[<+->]
-    \item These will get revealed one by one
-      \begin{itemize}
-	\item Indented bullets
-	\item Some more indented bullets
-      \end{itemize}
-    \item Another bullet point
-    \item Yet another bullet point
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[plain]
-  This is the most important takeaway that everyone has to remember.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-\begin{frame}{Conclusions}
-  What is the conclusion of your experiment?
-  Did the results support your hypothesis or predicted outcome?
-  How will your findings help the area of science you’ve researched?
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Further Work}
-\begin{frame}{Further Work}
-
-  What will you do with your findings next?
-  How will you further your research/findings?
-
-  Wind tunnel testing platform
-  -Design and implement closed loop control algorithms
-  -Carry out closed loop wind tunnel experiments
-  
-  Flying platform
-  -Wind tunnel experiments
-  -Outdoors flight tests
-  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

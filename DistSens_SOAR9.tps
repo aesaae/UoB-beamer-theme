@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=DistSens_SOAR9.tex
 
 [Frame0_View0,0]
-TopLine=48
-Cursor=2557
+TopLine=340
+Cursor=11900
 
 [Frame1]
 Flags=0
@@ -32,11 +32,11 @@ NormalPos.top=26
 NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
-Document=Figures\WingSensorDescription.tex
+Document=Figures\StrainSensorsInWing.tex
 
 [Frame1_View0,0]
-TopLine=13
-Cursor=1016
+TopLine=9
+Cursor=1351
 
 [Frame2]
 Flags=0
@@ -50,11 +50,11 @@ NormalPos.top=26
 NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
-Document=beamercolorthemeUoB.sty
+Document=Figures\WingSensorDescription.tex
 
 [Frame2_View0,0]
-TopLine=24
-Cursor=357
+TopLine=0
+Cursor=519
 
 [Frame3]
 Flags=0
@@ -68,67 +68,13 @@ NormalPos.top=26
 NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
-Document=beamerfontthemeUoB.sty
+Document=Figures\ANN_UAVCtrl_BlockDiagram.tex
 
 [Frame3_View0,0]
-TopLine=20
-Cursor=0
-
-[Frame4]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1696
-NormalPos.bottom=635
-Class=LaTeXView
-Document=beamerinnerthemeUoB.sty
-
-[Frame4_View0,0]
-TopLine=33
-Cursor=0
-
-[Frame5]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1696
-NormalPos.bottom=635
-Class=LaTeXView
-Document=beamerouterthemeUoB.sty
-
-[Frame5_View0,0]
-TopLine=76
-Cursor=3455
-
-[Frame6]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1696
-NormalPos.bottom=635
-Class=LaTeXView
-Document=beamerthemeUoB.sty
-
-[Frame6_View0,0]
-TopLine=169
-Cursor=0
+TopLine=34
+Cursor=2259
 
 [SessionInfo]
-FrameCount=7
-ActiveFrame=0
+FrameCount=4
+ActiveFrame=3
 
