@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1619
+NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
 Document=DistSens_SOAR9.tex
 
 [Frame0_View0,0]
-TopLine=352
-Cursor=12690
+TopLine=358
+Cursor=12836
 
 [Frame1]
 Flags=0
@@ -29,7 +29,7 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1619
+NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
 Document=Figures\StrainSensorsInWing.tex
@@ -47,7 +47,7 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1619
+NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
 Document=Figures\WingSensorDescription.tex
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1619
+NormalPos.right=1696
 NormalPos.bottom=635
 Class=LaTeXView
 Document=Figures\ANN_UAVCtrl_BlockDiagram.tex
 
 [Frame3_View0,0]
-TopLine=34
+TopLine=12
 Cursor=2259
 
 [SessionInfo]
