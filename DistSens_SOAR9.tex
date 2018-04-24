@@ -57,7 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \subsection{Motivation}
-\begin{frame}{Motivation}
+\begin{frame}{Motivation: Why Bio-Inspired Distributed Sensing?}
   
 	\pause
   \begin{columns}
@@ -202,12 +202,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Previous Research at UoB: Strain sensing}
-  Findings
+  What did we learned?
 	\pause
     \begin{itemize}[<+->]
       \item Strain signal shows linear response with AoA
       \item Stall markers
       \item Strain-based roll control similar performance to IMU based control
+			\item Information not available using IMU: AoA, stall, roll acceleration
     \end{itemize}
 \end{frame}
 
@@ -254,7 +255,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Previous Research at UoB: Pressure sensing}
-  Findings
+  What did we learned?
 	\pause
     \begin{itemize}[<+->]
       \item Pressure signal shows linear response with AoA
@@ -298,7 +299,6 @@
 				\item<4->{Servo actuated control surfaces}
         \item<6->{MCU-based data acquisition system using, sampling \@ \SI{100}{\hertz}}
         \item<7->{1-DOF pitch motion servo-driven system for automated motion}
-        
       \end{itemize}
     \end{column}
     \begin{column}{0.6\textwidth}
@@ -324,8 +324,8 @@
 	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Preliminary Results]{Preliminary Results}
-\begin{frame}{Preliminary Results}
+%\subsection[Preliminary Results]{Preliminary Results}
+\begin{frame}{Current Research at UoB}
 
   \vspace{-1.5em}
 	\begin{columns}
@@ -350,33 +350,52 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}{Preliminary Results}
-	%
-	%\begin{figure}[!htb]
-    %\centering
-    %%\input{./Figures/ANN_UAVCtrl_BlockDiagram}
-    %\caption{AoA and wind-speed estimation using ANN}
-    %\label{Fig:AoAWindspeed_ANN}
-  %\end{figure}
-	%
-%\end{frame}
+\begin{frame}{Current Research at UoB}
+
+	Currently working on:
+  \pause
+  \begin{itemize}[<+->]
+    \item{Use strain and pressure signals to}
+			\begin{itemize}[<+->]
+			  \item[-]{Estimated AoA, airspeed, aero-loads}
+        %\item[-]{Span-wise array with 16 strain gauges}
+			\end{itemize}
+		\item{Design and implement closed loop control:}
+			\begin{itemize}[<+->]
+			  \item[-]{Classic control architecture (SISO)}
+        \item[-]{Algorithm using information from distributed array, (e.g. MISO, MIMO)}
+			\end{itemize}
+  \end{itemize}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Concluding Remarks \& Further Work}
-\begin{frame}{Concluding Remarks \& Further Work}
-
+\section{Concluding Remarks}
+\begin{frame}{Concluding Remarks}
   %What did you learn after testing?
 
   \pause
   \begin{itemize}[<+->]
     \item WT Characterisation experiments for strain and pressure signals
+		  \begin{itemize}[<+->]
+			  \item[-]{Pressure and strain signal show linear response with AoA}
+        \item[-]{Stall detection potential}
+				\item[-]{Strain-based roll control similar performance to IMU based control}
+        \item[-]{Pitch pressure-based control similar to IMU based control}
+			  \item[-]{Information not available using IMU: AoA, stall, non-linear lift}
+			\end{itemize}
     %\item AoA and wind-speed ANN prediction using pressure data
   \end{itemize}
-	\pause
-	%What will you do with your findings next?
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Further Work}
+\begin{frame}{Further Work}
+  %What will you do with your findings next?
   %How will you further your research/findings?
-	Further Work
-	\pause
+
+  \pause
   \begin{itemize}[<+->]
     \item Phase 1: Wind tunnel testing platform
       \begin{itemize}[<+->]
