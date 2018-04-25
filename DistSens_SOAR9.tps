@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=DistSens_SOAR9.tex
 
 [Frame0_View0,0]
-TopLine=358
-Cursor=12836
+TopLine=69
+Cursor=2895
 
 [Frame1]
 Flags=0
@@ -54,7 +54,7 @@ Document=Figures\WingSensorDescription.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=519
+Cursor=1259
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=Figures\ANN_UAVCtrl_BlockDiagram.tex
 
 [Frame3_View0,0]
-TopLine=12
-Cursor=2259
+TopLine=36
+Cursor=2161
 
 [SessionInfo]
 FrameCount=4

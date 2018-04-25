@@ -26,6 +26,13 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 
+\usepackage{pgfpages}
+
+\mode<handout>{%
+    \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm] 
+    \setbeameroption{show notes}
+}
+
 \usepackage{multimedia}
 
 \everymath{\displaystyle}
@@ -71,13 +78,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Motivation: Why Bio-Inspired Distributed Sensing?}
   
-	\pause
+  \pause
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-	\item<1->{Current UAV autopilot technologies}
-	\item<3->{Challenges}
-	\item<5->{Potential use of force and flow information}
+	      \item<1->{Current UAV autopilot technologies}\\[2.5em]
+	      \item<3->{Challenges}\\[2.5em]
+	      \item<5->{Potential use of force and flow information}\\[2.5em]
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}  %%<--- here
@@ -97,7 +104,7 @@
 	\end{itemize}	  
       }
       \only<6>{
-			Potential applications
+
 	\begin{itemize}
 	  \item[-]Availability of aerodynamic variables
 	  \begin{itemize}
@@ -171,46 +178,112 @@
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
-			\only<1,3,6>{
 				\begin{figure}[!htb]
 	  			\centering
 	  			\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
 	  			\caption{Strain sensing platform}
 	  			\label{Fig:StrainExpPlatform}
 				\end{figure}
-			}
-			\only<2>{
-				\begin{figure}[!htb]
-	  			\centering
-	  			\input{./Figures/StrainSensorsInWing.tex}
-	  			\caption{Strain sensing platform instrumentation}
-	  			\label{Fig:StrainExpPlatformInst}
-				\end{figure}
-			}
-			\only<4>{
-        \centering
-        \movie[width=0.8\textwidth,externalviewer]{
-          \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
-					{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}
-			}
-			\only<5>{
-        \centering
-        \movie[width=0.8\textwidth,externalviewer]{
-          \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
-					{./Videos/StrainFeedbackCtrl_GustRejection.mp4}
-			}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Previous Research at UoB: Strain sensing}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+		  \begin{figure}[!htb]
+	  		\centering
+	  		\input{./Figures/StrainSensorsInWing.tex}
+	  		\caption{Strain sensing platform instrumentation}
+	  		\label{Fig:StrainExpPlatformInst}
+			\end{figure}
 		\end{column}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
 				\item<2-> 12 full-bridge strain gauges and amplifiers distributed along spar of wing
 				\item<3-> Wind tunnel characterisation
-				\item<4,5-> Closed loop free flight
-				\item<6-> Outdoor flight testing
 			\end{itemize}
 		\end{column}
 	\end{columns}
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Previous Research at UoB: Strain sensing}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+			\begin{figure}[!htb]
+	  		\centering
+	  		\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  		\caption{Strain sensing platform}
+	  	  \label{Fig:StrainExpPlatform2}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<2-> {\movie[width=0.8\textwidth,externalviewer]{Open loop free flight}
+					{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}}
+				\item<3-> {\movie[width=0.8\textwidth,externalviewer]{Closed loop free flight}
+					{./Videos/StrainFeedbackCtrl_GustRejection.mp4}}
+				\item<4-> Outdoor flight testing
+			\end{itemize}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Previous Research at UoB: Strain sensing}
+%
+  %\begin{columns}
+    %\begin{column}{0.6\textwidth}
+			%\only<1,3,6>{
+				%\begin{figure}[!htb]
+	  			%\centering
+	  			%\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  			%\caption{Strain sensing platform}
+	  			%\label{Fig:StrainExpPlatform3}
+				%\end{figure}
+			%}
+			%\only<2>{
+				%\begin{figure}[!htb]
+	  			%\centering
+	  			%\input{./Figures/StrainSensorsInWing.tex}
+	  			%\caption{Strain sensing platform instrumentation}
+	  			%\label{Fig:StrainExpPlatformInst2}
+				%\end{figure}
+			%}
+			%\only<4>{
+        %\centering
+        %\movie[width=0.8\textwidth,externalviewer]{
+          %\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
+					%{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}
+			%}
+			%\only<5>{
+        %\centering
+        %\movie[width=0.8\textwidth,externalviewer]{
+          %\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
+					%{./Videos/StrainFeedbackCtrl_GustRejection.mp4}
+			%}
+		%\end{column}
+		%\begin{column}{0.4\textwidth}
+			%\begin{itemize}
+				%\item<2-> 12 full-bridge strain gauges and amplifiers distributed along spar of wing
+				%\item<3-> Wind tunnel characterisation
+				%\item<4,5-> Closed loop free flight
+				%\item<6-> Outdoor flight testing
+			%\end{itemize}
+		%\end{column}
+	%\end{columns}
+%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Previous Research at UoB: Strain sensing}
@@ -229,7 +302,7 @@
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
-      \only<1,3,5>{
+      \only<1,2,4,5>{
         \begin{figure}[!htb]
 			    \centering
           \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}
@@ -237,7 +310,7 @@
           \label{Fig:PressureExpPlatform}
         \end{figure}
       }
-      \only<2>{
+      \only<3>{
         \begin{figure}[!htb]
           \centering
           \includegraphics[height=0.45\textwidth]{wingInsertDiagram.eps}
@@ -245,20 +318,24 @@
           \label{Fig:PressureExpPlatformInst}
         \end{figure}
       }
-			\only<4>{
-        \centering
-        \movie[width=0.8\textwidth,externalviewer]{
-          \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}}
-					{./Videos/WTAoATracking.mp4}
-        %\caption{Pressure sensing platform}
+			\only<6>{
+        \begin{figure}[!htb]
+          \centering
+          \includegraphics[height=0.45\textwidth]{PressSens_AoATracking.eps}
+          \caption{outdoors angle-of-attack tracking}
+          \label{Fig:PressSens_AoATracking}
+        \end{figure}
 			}
 		\end{column}
 		\begin{column}{0.4\textwidth}
 		  \begin{itemize}
-				\item<2-> 7 static-pressure ports distributed along wing-chord
-				\item<3-> Wind tunnel characterisation
-				\item<4-> Closed loop 1DOF WT testing
-				\item<5-> Outdoor flight testing
+				\item<2-> 3-D printed insert on starboard wing
+				\item<3-> 7 static-pressure ports distributed along wing-chord
+				\item<4-> Wind tunnel characterisation
+				\item<5-> \movie[width=0.8\textwidth,externalviewer]{%
+				  Closed loop 1DOF WT testing}
+					{./Videos/WTAoATracking.mp4}
+				\item<6-> Outdoor flight testing
 			\end{itemize}
 		\end{column}
   \end{columns}
@@ -333,11 +410,11 @@
   \centering
   \movie[width=0.8\textwidth,externalviewer]{
     \includegraphics[width=0.7\textwidth]{WingModelInWT_01.eps}}
-    {./Videos/WT_BIDS_V8.avi}
+    {./Videos/WT_BIDS_V8_short.mp4}
 	
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection[Preliminary Results]{Preliminary Results}
 \begin{frame}{Current Research at UoB}
 
   \vspace{-1.5em}
@@ -345,40 +422,97 @@
 	  \begin{column}{0.5\textwidth}
 		  \begin{figure}[!htb]
         \centering
-				\includegraphics[height=0.6\textwidth]{PressureCoeffDistribution.eps}
-				\caption{Chord-wise Normalised Pressure}
-				\label{fig:CharSignals_Pressure}
+			 \includegraphics[height=0.45\textwidth]{DistSens_PressureDynResponse_q20degps.eps}
+			 \caption{Pressure response for ${q = \SI{\pm 20}{\degree\per\second}}$}
+			 \label{fig:DistSens_PressureDynResponse_q20degps}
       \end{figure}
 		\end{column}
     \begin{column}{0.5\textwidth}
-		  \begin{figure}[!htb]
+      \begin{figure}[!htb]
         \centering
-				\includegraphics[height=0.6\textwidth]{BendingMomentDistribution.eps}
-				\caption{Span-wise Normalised Bending Moment}
-				\label{fig:CharSignals_Bending}
+			 \includegraphics[height=0.45\textwidth]{DistSens_PressureDynResponse_q50degps.eps}
+			 \caption{Pressure response for ${q = \SI{\pm 40}{\degree\per\second}}$}
+			 \label{fig:DistSens_PressureDynResponse_q50degps}
       \end{figure}
 		\end{column}
 	\end{columns}
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Current Research at UoB}
 
-	Currently working on:
-  \pause
-  \begin{itemize}[<+->]
-    \item{Use strain and pressure signals to}
-			\begin{itemize}[<+->]
-			  \item[-]{Estimated AoA, airspeed, aero-loads}
-        %\item[-]{Span-wise array with 16 strain gauges}
-			\end{itemize}
-		\item{Design and implement closed loop control:}
-			\begin{itemize}[<+->]
-			  \item[-]{Classic control architecture (SISO)}
-        \item[-]{Algorithm using information from distributed array, (e.g. MISO, MIMO)}
-			\end{itemize}
-  \end{itemize}
+  \vspace{-1.5em}
+	\begin{columns}
+	  \begin{column}{0.5\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+			 \includegraphics[height=0.45\textwidth]{DistSens_StrainDynResponse_q20degps.eps}
+			 \caption{Strain response for ${q = \SI{\pm 20}{\degree\per\second}}$}
+			 \label{fig:DistSens_StrainDynResponse_q20degps}
+      \end{figure}
+		\end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[!htb]
+        \centering
+			 \includegraphics[height=0.45\textwidth]{DistSens_StrainDynResponse_q50degps.eps}
+			 \caption{Strain response for ${q = \SI{\pm 40}{\degree\per\second}}$}
+			 \label{fig:DistSens_StrainDynResponse_q50degps}
+      \end{figure}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Current Research at UoB}
+
+	\begin{columns}
+    \begin{column}{0.6\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+			 \includegraphics[height=0.45\textwidth]{DistSens_DynResponse.eps}
+			 \caption{Pressure \& strain response to dynamic input}
+			 \label{fig:DistSens_DynResponse}
+      \end{figure}
+		\end{column}
+    \begin{column}{0.4\textwidth}
+      
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Current Research at UoB}
+
+  \vspace{-1.5em}
+	\begin{columns}
+	  \begin{column}{0.6\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+				\input{./Figures/ANN_UAVCtrl_BlockDiagram}
+				\caption{Possible UAV control strategies}
+				\label{fig:ANN_UAVCtrl_BlockDiagram}
+      \end{figure}
+		\end{column}
+    \begin{column}{0.4\textwidth}
+		  Currently working on:
+      \pause
+      \begin{itemize}[<+->]
+        \item{Use strain and pressure signals to estimated}
+			  \begin{itemize}[<+->]
+			    \item[-]{AoA, airspeed}
+          \item[-]{Aerodynamic loads}
+			  \end{itemize}
+		    \item{Design and implement closed loop control:}
+			  \begin{itemize}[<+->]
+			    \item[-]{Classic control architecture (SISO)}
+          \item[-]{Algorithm using information from distributed array, (e.g. MISO, MIMO)}
+			  \end{itemize}
+      \end{itemize}
+		\end{column}
+	\end{columns}
 
 \end{frame}
 
@@ -399,7 +533,7 @@
 			\end{itemize}
     %\item AoA and wind-speed ANN prediction using pressure data
   \end{itemize}
-	
+	  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
