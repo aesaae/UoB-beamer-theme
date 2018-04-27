@@ -19,7 +19,8 @@
 	\makenomenclature
 \usepackage{tikz}
 \usetikzlibrary{matrix,chains,scopes,arrows,positioning,fit,
-	decorations.pathmorphing,decorations.markings,shapes,calc}
+	decorations.pathmorphing,decorations.markings,shapes,calc,
+	positioning,patterns}
 \usepackage[binary-units = true]{siunitx}
 \usepackage{subfig}
 
@@ -27,13 +28,17 @@
 \pgfplotsset{compat=1.15}
 
 \usepackage{pgfpages}
+\usepackage{multimedia}
 
 \mode<handout>{%
-    \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm] 
-    \setbeameroption{show notes}
+  \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm] 
+	\setbeamercolor{background canvas}{bg=black!5}
+  %\setbeameroption{show notes}
 }
 
-\usepackage{multimedia}
+\mode<second>{%
+  \setbeameroption{show notes on second screen}
+}
 
 \everymath{\displaystyle}
 
@@ -68,10 +73,35 @@
 
   \centering
   \movie[externalviewer]{%
-	  {\centering\color{blue}Amazing seagull!!!}}
-    {./Videos/MavicProVsSeagull.mp4}
+	  {\centering\color{blue}Amazing Kestrel!!!}}
+    {./Videos/KestrelHovering&Hunting_Cornwall.mp4}
 	\\[1em]
-	\url{https://www.youtube.com/watch?v=MZQfxSn0FgA}
+	Kestrel Hovering and Hunting in Cornwall\\
+	Paul Dinning, 2015\\
+	\url{https://www.youtube.com/watch?v=7j6OsP7zL6w}
+
+  \note[item]{Head is stationary}
+  \note[item]{Wing morphing}
+	\note[item]{Tail morphing}
+	\note[item]{Compare \& contrast with UAVs}
+	\note[item]{Control strategies:\\
+	  a) Inertial \& visual control\\
+		b) What other senses is the kestrel using?
+	}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]{Motivation: Why Bio-Inspired Distributed Sensing?}
+
+  \begin{figure}[!htb]
+    \centering
+		\input{./Figures/BioSystemsSensing}
+		\caption{Biological systems sensing}
+		\label{fig:BioSystemsSensing}
+  \end{figure}
+	
+	\note{... Herbst corpuscles are vibration-sensitive mechano-receptors with broad bandpass tuning curves.}
 
 \end{frame}
 
@@ -82,9 +112,9 @@
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-	      \item<1->{Current UAV autopilot technologies}\\[2.5em]
-	      \item<3->{Challenges}\\[2.5em]
-	      \item<5->{Potential use of force and flow information}\\[2.5em]
+	      \item<1->{Current UAV autopilot technologies}\\[4em]
+	      \item<3->{Challenges}\\[4em]
+	      \item<5->{Potential use of force and flow information}\\[4em]
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}  %%<--- here
@@ -133,15 +163,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Research Problem}
 \begin{frame}{Research Problem}
-  Use force and flow sensing to improve performance of UAVs flight control systems.\\
-  \pause
-  To achieve this we aim to:
-  \begin{itemize}
-    \item<3-> Develop distributed force and flow a sensing system for a small scale fixed wing UAV
-    \item<4-> Integrate force and flow sensing into conventional flight control system architecture
-    \item<5-> Measure response of systems to controlled and natural turbulence
-    \item<6-> Develop advanced reflexive flight control system
-  \end{itemize}
+  
+	Use force and flow sensing to improve performance of UAVs flight control systems.\\
+	\begin{columns}
+    \begin{column}{0.35\textwidth}
+      \pause
+      To achieve this we aim to:
+      \begin{itemize}
+        \item<3-> Develop distributed sensing system for UAV
+        \item<4-> Integrate with conventional flight control system
+        \item<5-> Measure response to turbulence
+        \item<6-> Develop flight control systems
+      \end{itemize}
+	  \end{column}
+		\begin{column}{0.65\textwidth}
+		  \only<3>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{DistSensingUAV.eps}
+				\end{figure}
+			}
+			\only<4>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{DistSensingUAV.eps}
+				\end{figure}
+			}
+			\only<5>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{DistSensingUAV.eps}
+				\end{figure}
+			}
+			\only<6>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{DistSensingUAV.eps}
+				\end{figure}
+			}
+		\end{column}
+	\end{columns}
+	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,31 +240,30 @@
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
+		  \only<1>{		
 				\begin{figure}[!htb]
 	  			\centering
 	  			\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
 	  			\caption{Strain sensing platform}
 	  			\label{Fig:StrainExpPlatform}
 				\end{figure}
-		\end{column}
-		\begin{column}{0.4\textwidth}
-			
-		\end{column}
-	\end{columns}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Previous Research at UoB: Strain sensing}
-
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-		  \begin{figure}[!htb]
-	  		\centering
-	  		\input{./Figures/StrainSensorsInWing.tex}
-	  		\caption{Strain sensing platform instrumentation}
-	  		\label{Fig:StrainExpPlatformInst}
-			\end{figure}
+			}
+			\only<2>{
+			  \begin{figure}[!htb]
+	  		  \centering
+	  		  \input{./Figures/StrainSensorsInWing.tex}
+	  		  \caption{Strain sensing platform instrumentation}
+	  		  \label{Fig:StrainExpPlatformInst}
+			  \end{figure}
+			}
+			\only<3>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\input{./Figures/StrainWTDataSet_RightWing.tex}
+	  			\caption{Strain wind tunnel characterisation}
+	  			\label{Fig:StrainWTChar}
+				\end{figure}
+			}
 		\end{column}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
@@ -219,82 +280,41 @@
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
-			\begin{figure}[!htb]
-	  		\centering
-	  		\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
-	  		\caption{Strain sensing platform}
-	  	  \label{Fig:StrainExpPlatform2}
-			\end{figure}
+			\only<-4>{
+			  \begin{figure}[!htb]
+	  		  \centering
+	  		  \includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  		  \caption{Strain sensing platform}
+	  	    \label{Fig:StrainExpPlatform2}
+			  \end{figure}
+			}
+			\only<5->{
+			  \begin{figure}[!htb]
+	  			\centering
+	  			\input{./Figures/Strain_OutdoorsResponse2Controls.tex}
+	  			\caption{Strain response to control inputs}
+	  			\label{Fig:Strain_OutdoorsResponse2Controls}
+				\end{figure}
+			}
 		\end{column}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				\item<2-> {\movie[width=0.8\textwidth,externalviewer]{Open loop free flight}
+			  \item<2-> {\movie[width=0.8\textwidth,externalviewer]{Response to controlled gusts}
+					{./Videos/Strain_WTGust.mp4}}
+				\item<3-> {\movie[width=0.8\textwidth,externalviewer]{Open loop free flight}
 					{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}}
-				\item<3-> {\movie[width=0.8\textwidth,externalviewer]{Closed loop free flight}
+				\item<4-> {\movie[width=0.8\textwidth,externalviewer]{Closed loop free flight}
 					{./Videos/StrainFeedbackCtrl_GustRejection.mp4}}
-				\item<4-> Outdoor flight testing
+				\item<5-> Outdoor flight testing
 			\end{itemize}
 		\end{column}
 	\end{columns}
 
-\end{frame}
+  \note[item]<2>{Click on 'Response to controlled gusts' to show gust video:}
+	\note[item]<3>{Click on 'Open loop free flight' to show open-loop video}
+	\note[item]<4>{Click on 'Closed loop free flight' to show closed-loop video}
+	\note[item]<5>{Outdoor flight graph}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}{Previous Research at UoB: Strain sensing}
-%
-  %\begin{columns}
-    %\begin{column}{0.6\textwidth}
-			%\only<1,3,6>{
-				%\begin{figure}[!htb]
-	  			%\centering
-	  			%\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
-	  			%\caption{Strain sensing platform}
-	  			%\label{Fig:StrainExpPlatform3}
-				%\end{figure}
-			%}
-			%\only<2>{
-				%\begin{figure}[!htb]
-	  			%\centering
-	  			%\input{./Figures/StrainSensorsInWing.tex}
-	  			%\caption{Strain sensing platform instrumentation}
-	  			%\label{Fig:StrainExpPlatformInst2}
-				%\end{figure}
-			%}
-			%\only<4>{
-        %\centering
-        %\movie[width=0.8\textwidth,externalviewer]{
-          %\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
-					%{./Videos/StrainSensingExperiment_037_SlowDownShort.mp4}
-			%}
-			%\only<5>{
-        %\centering
-        %\movie[width=0.8\textwidth,externalviewer]{
-          %\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}}
-					%{./Videos/StrainFeedbackCtrl_GustRejection.mp4}
-			%}
-		%\end{column}
-		%\begin{column}{0.4\textwidth}
-			%\begin{itemize}
-				%\item<2-> 12 full-bridge strain gauges and amplifiers distributed along spar of wing
-				%\item<3-> Wind tunnel characterisation
-				%\item<4,5-> Closed loop free flight
-				%\item<6-> Outdoor flight testing
-			%\end{itemize}
-		%\end{column}
-	%\end{columns}
-%
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Previous Research at UoB: Strain sensing}
-  What did we learned?
-	\pause
-    \begin{itemize}[<+->]
-      \item Strain signal shows linear response with AoA
-      \item Stall markers
-      \item Strain-based roll control similar performance to IMU based control
-			\item Information not available using IMU: AoA, stall, roll acceleration
-    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -302,12 +322,20 @@
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
-      \only<1,2,4,5>{
+		  \only<1,5>{
         \begin{figure}[!htb]
 			    \centering
           \includegraphics[height=0.45\textwidth]{Bixler_WTTest.eps}
           \caption{Pressure sensing platform}
           \label{Fig:PressureExpPlatform}
+        \end{figure}
+      }
+		  \only<2>{
+        \begin{figure}[!htb]
+			    \centering
+					\input{./Figures/PressureExpPlatform_3DInsert.tex}
+          \caption{Pressure sensing platform}
+          \label{Fig:PressureExpPlatform_3DInsert}
         \end{figure}
       }
       \only<3>{
@@ -316,6 +344,14 @@
           \includegraphics[height=0.45\textwidth]{wingInsertDiagram.eps}
           \caption{Pressure sensing platform instrumentation}
           \label{Fig:PressureExpPlatformInst}
+        \end{figure}
+      }
+			\only<4>{
+        \begin{figure}[!htb]
+          \centering
+	  			\input{./Figures/PressureWTChar.tex}
+          \caption{Pressure wind tunnel characterisation}
+          \label{Fig:PressureWTChar}
         \end{figure}
       }
 			\only<6>{
@@ -347,10 +383,17 @@
   What did we learned?
 	\pause
     \begin{itemize}[<+->]
-      \item Pressure signal shows linear response with AoA
-      \item Stall markers
-      \item Pitch pressure-based control similar to IMU based control
-			\item Information not available using IMU: AoA, stall, non-linear lift
+      \item Strain \& pressure signal show
+			\begin{itemize}[<+->]
+			  \item[-]Linear response with AoA
+			  \item[-]Stall markers
+			\end{itemize}
+			\item Similar performance to IMU-based control
+			\begin{itemize}[<+->]
+			  \item[-]Strain ${\rightarrow}$ roll control
+        \item[-]Pressure ${\rightarrow}$ pitch control
+			\end{itemize}
+			\item Information not available using IMU: AoA, stall, roll acceleration, non-linear lift
     \end{itemize}
 \end{frame}
 
@@ -359,18 +402,19 @@
 
 \begin{frame}{Current Research at UoB}
 
+  Research focuses on:
   \pause
 	\begin{itemize}[<+->]
-    \item Experimental platform(s) with a distributed array of pressure and strain sensors
-    \item Carry out calibration \& characterisation (WT \& outdoors)
-    \item Design and implement closed loop control algorithms that use information from distributed array
+    \item Pressure and strain sensing experimental platform
+    \item Calibration \& characterisation experiments
+    \item Closed loop control algorithms
   \end{itemize}
 	\pause
   Divided into two phases:
 	\pause
   \begin{itemize}[<+->]
-    \item Phase 1: Wind tunnel experiments using WT model
-    \item Phase 2: Outdoors experiments using flying platform
+    \item Phase 1: Wind tunnel experiments
+    \item Phase 2: Outdoor flights experiments
   \end{itemize}
   
 \end{frame}
@@ -417,69 +461,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Current Research at UoB}
 
-  \vspace{-1.5em}
-	\begin{columns}
-	  \begin{column}{0.5\textwidth}
-		  \begin{figure}[!htb]
-        \centering
-			 \includegraphics[height=0.45\textwidth]{DistSens_PressureDynResponse_q20degps.eps}
-			 \caption{Pressure response for ${q = \SI{\pm 20}{\degree\per\second}}$}
-			 \label{fig:DistSens_PressureDynResponse_q20degps}
-      \end{figure}
-		\end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{figure}[!htb]
-        \centering
-			 \includegraphics[height=0.45\textwidth]{DistSens_PressureDynResponse_q50degps.eps}
-			 \caption{Pressure response for ${q = \SI{\pm 40}{\degree\per\second}}$}
-			 \label{fig:DistSens_PressureDynResponse_q50degps}
-      \end{figure}
-		\end{column}
-	\end{columns}
+  \begin{figure}[!htb]
+    \centering
+		\input{./Figures/StrainResponse2q}
+		\caption{Strain response for various ${q}$ values}
+		\label{fig:StrainResponse2q}
+  \end{figure}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Current Research at UoB}
-
-  \vspace{-1.5em}
-	\begin{columns}
-	  \begin{column}{0.5\textwidth}
-		  \begin{figure}[!htb]
-        \centering
-			 \includegraphics[height=0.45\textwidth]{DistSens_StrainDynResponse_q20degps.eps}
-			 \caption{Strain response for ${q = \SI{\pm 20}{\degree\per\second}}$}
-			 \label{fig:DistSens_StrainDynResponse_q20degps}
-      \end{figure}
-		\end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{figure}[!htb]
-        \centering
-			 \includegraphics[height=0.45\textwidth]{DistSens_StrainDynResponse_q50degps.eps}
-			 \caption{Strain response for ${q = \SI{\pm 40}{\degree\per\second}}$}
-			 \label{fig:DistSens_StrainDynResponse_q50degps}
-      \end{figure}
-		\end{column}
-	\end{columns}
-
-\end{frame}
+%\begin{frame}{Current Research at UoB}
+%
+  %\begin{figure}[!htb]
+    %\centering
+		%\input{./Figures/PressureResponse2q}
+		%\caption{Pressure response for various ${q}$ values}
+		%\label{fig:PressureResponse2q}
+  %\end{figure}
+%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Current Research at UoB}
 
-	\begin{columns}
-    \begin{column}{0.6\textwidth}
-		  \begin{figure}[!htb]
-        \centering
-			 \includegraphics[height=0.45\textwidth]{DistSens_DynResponse.eps}
-			 \caption{Pressure \& strain response to dynamic input}
-			 \label{fig:DistSens_DynResponse}
-      \end{figure}
-		\end{column}
-    \begin{column}{0.4\textwidth}
-      
-		\end{column}
-	\end{columns}
+  \begin{figure}[!htb]
+    \centering
+		\input{./Figures/DistSens_DynResponse}
+		\caption{Pressure \& strain response to dynamic input}
+		\label{fig:DistSens_DynResponse}
+  \end{figure}
 
 \end{frame}
 
@@ -507,8 +518,8 @@
 			  \end{itemize}
 		    \item{Design and implement closed loop control:}
 			  \begin{itemize}[<+->]
-			    \item[-]{Classic control architecture (SISO)}
-          \item[-]{Algorithm using information from distributed array, (e.g. MISO, MIMO)}
+			    \item[-]{Classic control architecture}
+          \item[-]{Algorithm using information from distributed array}
 			  \end{itemize}
       \end{itemize}
 		\end{column}
@@ -536,29 +547,29 @@
 	  
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Further Work}
-\begin{frame}{Further Work}
-  %What will you do with your findings next?
-  %How will you further your research/findings?
-
-  \pause
-  \begin{itemize}[<+->]
-    \item Phase 1: Wind tunnel testing platform
-      \begin{itemize}[<+->]
-      \item[-]Design and implement closed loop control algorithms
-      \item[-]Carry out closed loop wind tunnel experiments
-      \end{itemize}
-	
-    \item Phase 2: Flying platform
-      \begin{itemize}[<+->]
-			\item[-]Build and instrument flying platform
-      \item[-]Wind tunnel experiments
-      \item[-]Outdoors flight tests
-      \end{itemize}
-  \end{itemize}
-	
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Further Work}
+%\begin{frame}{Further Work}
+  %%What will you do with your findings next?
+  %%How will you further your research/findings?
+%
+  %\pause
+  %\begin{itemize}[<+->]
+    %\item Phase 1: Wind tunnel testing platform
+      %\begin{itemize}[<+->]
+      %\item[-]Design and implement closed loop control algorithms
+      %\item[-]Carry out closed loop wind tunnel experiments
+      %\end{itemize}
+	%
+    %\item Phase 2: Flying platform
+      %\begin{itemize}[<+->]
+			%\item[-]Build and instrument flying platform
+      %\item[-]Wind tunnel experiments
+      %\item[-]Outdoors flight tests
+      %\end{itemize}
+  %\end{itemize}
+	%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}

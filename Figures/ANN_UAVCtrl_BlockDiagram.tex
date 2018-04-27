@@ -33,23 +33,32 @@
 
 		% Input layer labels
 		%\foreach \l [count=\i] in {1,2,3}
-			\draw [ArrowObject2] (input-1) -- ++(-2.5,0)
+			\draw [ArrowObject2] (input-1) -- ++(-2.0,0)
 				node [above, midway] {Inertial};
-			\draw [ArrowObject2] (input-2) -- ++(-2.5,0)
+			\draw [ArrowObject2] (input-2) -- ++(-2.0,0)
 				node [above, midway] {Pressure};
-			\draw [ArrowObject2] (input-3) -- ++(-2.5,0)
+			\draw [ArrowObject2] (input-3) -- ++(-2.0,0)
 				node [above, midway] {Strain};
 		% Hidden layer labels
 		\foreach \l [count=\i] in {1,2,3,n}
 			\node [above] at (hidden-\i.north) {$H_\l$};
 		% Output layer labels
 		%\foreach \l [count=\i] in {1,2,n}
-			\draw [ArrowObject1] (output-1) -- ++(2,0)
-				node [above, midway] {$\alpha, \,\beta,  \,V$};
-			\draw [ArrowObject1] (output-2) -- ++(2,0)
-				node [above, midway] {$C_{L}, \,C_{D}, \,\ldots$};
-			\draw [ArrowObject1] (output-3) -- ++(2,0)
-				node [above, midway] {$\delta_{ail}, \,\delta_{ele}, \,\ldots$};
+		  \draw [ArrowObject1] (output-1) -- ++(2,0);
+			\draw [ArrowObject1] (output-2) -- ++(2,0);
+			\draw [ArrowObject1] (output-3) -- ++(2,0);
+		  \only<3->{
+			  \draw [ArrowObject1] (output-1) -- ++(2,0)
+				  node [above, midway] {$\alpha, \,\beta,  \,V$};
+			}
+			\only<4->{
+			  \draw [ArrowObject1] (output-2) -- ++(2,0)
+				  node [above, midway] {$C_{L}, \,C_{D}, \,\ldots$};
+			}
+			\only<7->{
+			  \draw [ArrowObject1] (output-3) -- ++(2,0)
+				  node [above, midway] {$\delta_{ail}, \,\delta_{ele}, \,\ldots$};
+			}
 				
 		% Input layer connecting arrows
 		\foreach \i in {1,...,3}

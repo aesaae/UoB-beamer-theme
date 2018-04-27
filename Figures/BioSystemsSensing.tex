@@ -1,0 +1,52 @@
+% BioSystemsSensing.tex
+
+\tikzstyle{LabelObject}=[fill=white,rectangle,align=center]
+
+\resizebox{!}{0.4\textwidth}{
+	\begin{tikzpicture}
+	  %
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image11) at (0,0)%
+				{\includegraphics[height=0.25\textwidth]{HerbstCorpuscles.eps}};
+		\end{scope}
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image21) at (0,-4)%
+				{\includegraphics[height=0.25\textwidth]{SterbingDAngelo_BatHairs.eps}};
+		\end{scope}
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image31) at (0,-8)%
+				{\includegraphics[height=0.25\textwidth]{Yoshida_InsectHairs.eps}};
+		\end{scope}
+		%
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image12) at (10,0)%
+				{\includegraphics[height=0.25\textwidth]{BarnOwlCT_MuscleFeatherOffset.eps}};
+		\end{scope}
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image22) at (10,-4)%
+				{\includegraphics[height=0.25\textwidth]{Bat_MuscleSpindles.eps}};
+		\end{scope}
+		\begin{scope}
+		  \node[anchor=center,inner sep=0] (image32) at (10,-8)%
+				{\includegraphics[height=0.25\textwidth]{Dickinson_Fly_CampaniformSensilla.eps}};
+		\end{scope}
+		%
+		\draw(image11.north) ++(0,1) node (FlowSens_Label) {\Huge{\bf Flow Sensors}};
+		\draw(image12.north) ++(0,1) node (ForceSens_Label) {\Huge{\bf Force Sensors}};
+		\draw(image11.west) ++(-6, 0) node (Birds_Label) {\Huge{\bf Birds}};
+		\draw(image11.west) ++(-6,-4) node (Bats_Label) {\Huge{\bf Bats}};
+		\draw(image11.west) ++(-6,-8) node (Insects_Label) {\Huge{\bf Insects}};
+		%
+		\draw(image11.west) ++(-1,  0) node[LabelObject] (HerbstCorpuscles_Label) {Herbst\\corpuscles};
+		\draw(image21.west) ++(-1,  0) node[LabelObject] (BatHairs_Label) {Hairs};
+		\draw(image21.west) ++( 1, -1.75) node[gray,LabelObject] (BatHairsAuthor_Label) {Sterbing-D'Angeloa et al. (2011)};
+		\draw(image31.north west) ++(2.5,-0.5) node[LabelObject] (InsectHairs_Label) {Hairs};
+		\draw(image31.south west) ++(2.5,0.0) node[gray,LabelObject] (InsectHairsAuthor_Label) {Ai et al. (2010)};
+		\draw(image12.east) ++(1,  0) node[LabelObject] (BirdSpindles_Label) {Muscle\\spindles};
+		\draw(image22.east) ++(1,  0) node[LabelObject] (BatSpindles_Label) {Muscle\\spindles};
+		\draw(image22.east) ++(1, -1) node[gray,LabelObject] (BatSpindlesAuthor_Label) {Hedenstrom et al. (2015)};
+		\draw(image32.east) ++(1,  0) node[LabelObject] (InsectCampSens_Label) {Campaniform\\sensilla};
+		\draw(image32.east) ++(1, -1) node[gray,LabelObject] (InsectCampSensAuthor_Label) {Dickinson (1990)};
+		
+	\end{tikzpicture}
+}
