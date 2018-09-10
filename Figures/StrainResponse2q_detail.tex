@@ -63,14 +63,14 @@
 			\draw (WingNode) ++(-0.045,0) node[SGObject] (SG_B) {};
 			\draw (WingNode) ++(+0.045,0) node[SGObject] (SG_C) {};
 			\draw (WingNode) ++(+0.115,0) node[SGObject] (SG_D) {};
-			\only<1,2,3->{
+			\only<1,2,3>{
 			  %
 				\draw (WingNode) ++(-0.115,0) node[SelSGObject] (SG_A) {};
 			}
-			%\only<4->{
-			  %%
-				%\draw (WingNode) ++(+0.045,0) node[SelSGObject] (SG_C) {};
-			%}
+			\only<4->{
+			  %
+				\draw (WingNode) ++(+0.045,0) node[SelSGObject] (SG_C) {};
+			}
 			% Legend Nodes
 			\draw(0.20,0.30) node (q0_Line) {};
 			\draw(0.20,0.25) node (q1_Line) {};

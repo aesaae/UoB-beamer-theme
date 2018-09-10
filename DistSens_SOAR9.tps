@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1619
-NormalPos.bottom=650
+NormalPos.bottom=541
 Class=LaTeXView
 Document=DistSens_SOAR9.tex
 
 [Frame0_View0,0]
-TopLine=608
-Cursor=20348
+TopLine=527
+Cursor=17689
 
 [Frame1]
 Flags=0
@@ -30,7 +30,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1619
-NormalPos.bottom=650
+NormalPos.bottom=541
 Class=LaTeXView
 Document=Figures\PressSens_AoATracking.tex
 
@@ -48,13 +48,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1619
-NormalPos.bottom=650
+NormalPos.bottom=541
 Class=LaTeXView
 Document=Figures\StrainResponse2q_detail.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=25
+TopLine=25
+Cursor=1975
 
 [Frame3]
 Flags=0
@@ -66,13 +66,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1619
-NormalPos.bottom=650
+NormalPos.bottom=541
 Class=LaTeXView
-Document=Figures\BioSystemsSensing.tex
+Document=Figures\PressureResponse2q.tex
 
 [Frame3_View0,0]
-TopLine=22
-Cursor=2240
+TopLine=0
+Cursor=3860
 
 [Frame4]
 Flags=0
@@ -84,13 +84,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1619
-NormalPos.bottom=650
+NormalPos.bottom=541
 Class=LaTeXView
-Document=Figures\Distributed_UAVCtrl_BlockDiagram.tex
+Document=Figures\ANN_UAVCtrl_BlockDiagram.tex
 
 [Frame4_View0,0]
-TopLine=6
-Cursor=2641
+TopLine=0
+Cursor=223
 
 [SessionInfo]
 FrameCount=5
