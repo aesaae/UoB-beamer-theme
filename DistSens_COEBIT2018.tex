@@ -12,7 +12,7 @@
 
 % Generate handouts with notes (3 slides + 3 notes to 1 page)
 %\mode<handout>{
-%  \pgfpagesuselayout{3 on 1 with notes}[a4paper,border shrink=10mm]
+  %\pgfpagesuselayout{3 on 1 with notes}[a4paper,border shrink=10mm]
 %}
 
 \usepackage{nomencl} % nomenclature generation via makeindex
@@ -39,9 +39,9 @@
   %\setbeameroption{show notes}
 }
 
-%\mode<second>{%
-%\setbeameroption{show notes on second screen}
-%}
+\mode<second>{%
+	\setbeameroption{show notes on second screen}
+}
 
 \everymath{\displaystyle}
 
@@ -53,7 +53,7 @@
 %\subtitle{Subtitle}
 \author{\large \emph{Sergio A. Araujo-Estrada}\inst{1} \and Shane Windsor \inst{2}}
 \institute{\small\inst{1} Research Associate \\
-  \inst{2} Lecturer in Aerodynamics/Aeroelasticity\\
+  \inst{2} Lecturer in Aerodynamics\\
 	Aerospace Engineering Department \\
 	\href{mailto:s.araujoestrada@bristol.ac.uk}{s.araujoestrada@bristol.ac.uk}}
 \date{Tuesday, 18 September 2018}
@@ -244,47 +244,70 @@
 \section{Research at UoB}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Previous Research at UoB}
-  What did we learn?
-	\pause
-    \begin{itemize}[<+->]
-      \item Strain \& pressure signal show
+
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			What did we learn?
+			\pause
 			\begin{itemize}[<+->]
-			  \item[-]Linear response with AoA
-			  \item[-]Stall markers
+				\item Strain \& pressure signal show
+				\begin{itemize}[<+->]
+					\item[-]Linear response with AoA
+					\item[-]Stall markers
+				\end{itemize}
+				\item Similar performance to IMU-based control
+				\begin{itemize}[<+->]
+					\item[-]Strain ${\rightarrow}$ roll control
+					\item[-]Pressure ${\rightarrow}$ pitch control
+				\end{itemize}
+				\item Information not available using IMU
+				\begin{itemize}[<+->]
+					\item[-]AoA, stall, roll acceleration, non-linear lift
+				\end{itemize}
 			\end{itemize}
-			\item Similar performance to IMU-based control
-			\begin{itemize}[<+->]
-			  \item[-]Strain ${\rightarrow}$ roll control
-        \item[-]Pressure ${\rightarrow}$ pitch control
-			\end{itemize}
-			\item Information not available using IMU
-			\begin{itemize}[<+->]
-			  \item[-]AoA, stall, roll acceleration, non-linear lift
-			\end{itemize}
-    \end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+		  \only<1-4>{		
+				\begin{figure}[!htb]
+	  			\centering
+	  			\includegraphics[height=0.45\textwidth]{EasySkyGlider_WTGustTest.eps}
+	  			\caption{Strain sensing platform}
+	  			\label{Fig:StrainExpPlatform}
+				\end{figure}
+			}
+			\only<5-9>{		
+				\begin{figure}[!htb]
+			    \centering
+					\input{./Figures/PressureExpPlatform_3DInsert.tex}
+          \caption{Pressure sensing platform}
+          \label{Fig:PressureExpPlatform_3DInsert}
+        \end{figure}
+			}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Current Research]{Current Research}
 
-\begin{frame}{Current Research at UoB}
-
-  Research focuses on:
-  \pause
-	\begin{itemize}[<+->]
-    \item Pressure and strain sensing experimental platform
-    \item Calibration \& characterisation experiments
-    \item Closed loop control algorithms
-  \end{itemize}
-	\pause
-  Divided into two phases:
-	\pause
-  \begin{itemize}[<+->]
-    \item Phase 1: Wind tunnel experiments
-    \item Phase 2: Outdoor flights experiments
-  \end{itemize}
-  
-\end{frame}
+%\begin{frame}{Current Research at UoB}
+%
+  %Research focuses on:
+  %\pause
+	%\begin{itemize}[<+->]
+    %\item Pressure and strain sensing experimental platform
+    %\item Calibration \& characterisation experiments
+    %\item Closed loop control algorithms
+  %\end{itemize}
+	%\pause
+  %Divided into two phases:
+	%\pause
+  %\begin{itemize}[<+->]
+    %\item Phase 1: Wind tunnel experiments
+    %\item Phase 2: Outdoor flights experiments
+  %\end{itemize}
+  %
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Current Research at UoB}
@@ -297,7 +320,7 @@
         \item<2->{Chord-wise array of 30 pressure ports in two sections}
         \item<3->{Span-wise array with 16 strain gauges}
 				\item<4->{Servo actuated control surfaces}
-        \item<6->{MCU-based data acquisition system using, sampling \@ \SI{100}{\hertz}}
+        \item<6->{MCU-based data acquisition system using, sampling \@ \SI{200}{\hertz}}
         \item<7->{1-DOF pitch motion servo-driven system for automated motion}
       \end{itemize}
     \end{column}
@@ -328,7 +351,8 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Current Research at UoB}
+\subsection[Characterisation results]{Characterisation results}
+\begin{frame}{Characterisation results}
 
   \begin{figure}[!htb]
     \centering
@@ -340,45 +364,58 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Current Research at UoB}
-
-  \begin{figure}[!htb]
-    \centering
-		\input{./Figures/DistSens_DynResponse}
-		\caption{Pressure \& strain response to dynamic input}
-		\label{fig:DistSens_DynResponse}
-  \end{figure}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Current Research at UoB}
+\subsection[Aerodynamic Variables and Loads Estimation]{Aerodynamic Variables and Loads Estimation}
+\begin{frame}{Aerodynamic Variables and Loads Estimation}
 
   \vspace{-1.5em}
 	\begin{columns}
 	  \begin{column}{0.6\textwidth}
 		  \begin{figure}[!htb]
         \centering
-				\input{./Figures/ANN_UAVCtrl_BlockDiagram}
-				\caption{Possible UAV control strategies}
+				\input{./Figures/ANN_AeroEst_BlockDiagram}
+				\caption{General structure of ANN used for estimation}
 				\label{fig:ANN_UAVCtrl_BlockDiagram}
       \end{figure}
 		\end{column}
     \begin{column}{0.4\textwidth}
-		  Currently working on:
-      \pause
       \begin{itemize}[<+->]
         \item{Use strain and pressure signals to estimate}
 			  \begin{itemize}[<+->]
 			    \item[-]{AoA, airspeed}
           \item[-]{Aerodynamic loads}
 			  \end{itemize}
-		    \item{Design and implement closed loop control:}
-			  \begin{itemize}[<+->]
-			    \item[-]{Classic control architecture}
-          \item[-]{Algorithm using information from distributed array}
-			  \end{itemize}
+		    %\item{Design and implement closed loop control:}
+			  %\begin{itemize}[<+->]
+			    %\item[-]{Classic control architecture}
+          %\item[-]{Algorithm using information from distributed array}
+			  %\end{itemize}
       \end{itemize}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aerodynamic Variables and Loads Estimation}
+
+  \vspace{-2.0em}
+	\begin{columns}
+	  \begin{column}{0.49\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+				\input{./Figures/AoAAirspeedANNEstimation_TimeHist}
+				\vspace{-1.25em}
+				\caption{AoA \& airspeed estimation}
+				\label{fig:AeroVarEst_TimeHist}
+      \end{figure}
+		\end{column}
+    \begin{column}{0.49\textwidth}
+		  \begin{figure}[!htb]
+        \centering
+				\input{./Figures/DragLiftPitchMomentANNEstimation_TimeHist}
+				\vspace{-1.25em}
+				\caption{Aerodynamic loads estimation}
+				\label{fig:AeroLoadsEst_TimeHist}
+      \end{figure}
 		\end{column}
 	\end{columns}
 
@@ -391,16 +428,19 @@
 
   \pause
   \begin{itemize}[<+->]
-    \item{Lots of information on pressure and strain data}
-    \item{Challenges:}
-		\begin{itemize}[<+->]
-		  \item[-]{Best way to use data?}
-			\item[-]{Role of machine learning}
-		\end{itemize}
+			\item{Current ANN is able to accurately predict:}
+			\begin{itemize}[<+->]
+				\item{${\alpha}$, ${V}$, ${D}$,${L}$ and ${M}$, even in the stall region}
+			\end{itemize}
+		\item{Future directions:}
+			\begin{itemize}[<+->]
+				\item{pressure + strain + inertial ANN-based estimators to improve flight control performance}
+				\item{ANN trained to learn direct mappings between control inputs and system outputs (End-to-End learning)}
+			\end{itemize}
 		\item{Questions remain:}
 		\begin{itemize}[<+->]
-		  \item[-]{Sensors location \& number}
-			\item[-]{Extra potential uses \& benefits?}
+		  \item[-]{pitch rate \& aero-elastic effects on distributed array signals}
+			\item[-]{signal response to control surface deflections}
 		\end{itemize}
   \end{itemize}
 	  
@@ -587,7 +627,30 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[Current Research]{Appendix: Current Research}
+\section[Characterisation results]{Appendix: Characterisation results}
+%\begin{frame}{Characterisation results}
+%
+  %\begin{figure}[!htb]
+    %\centering
+		%\input{./Figures/StrainResponse2q}
+		%\caption{Strain response for various ${q}$ values}
+		%\label{fig:StrainResponse2q}
+  %\end{figure}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Current Research at UoB}
+
+  \begin{figure}[!htb]
+    \centering
+		\input{./Figures/DistSens_DynResponse}
+		\caption{Pressure \& strain response to dynamic input}
+		\label{fig:DistSens_DynResponse}
+  \end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Current Research at UoB}
 
   \begin{figure}[!htb]
